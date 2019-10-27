@@ -1,0 +1,64 @@
+import Link from 'next/link';
+import NavStyles from './styles/NavStyles';
+import User from '../components/User';
+import Signout from './Signout';
+import { Mutation } from 'react-apollo';
+import {TOGGLE_CART_MUTATION} from './Cart';
+import CartCount from './CartCount';
+
+
+const Nav = () =>(
+    
+    <User>
+        {({data : {me}})=>(
+            <NavStyles>
+                <Link href="/games">
+                    <a>Games </a>
+                </Link>
+                {me ?
+                <>
+                    <Link href="/sell">
+                        <a>Sell</a>
+                    </Link>
+            
+                    <Link href="/orders">
+                        <a>Orders</a>
+                    </Link>
+
+                    {me.permissions.filter( permission => ['ADMIN','PERMISSIONUPDATE'].includes(permission)).length ? 
+                    
+                    <Link href="/permissions">
+                        <a>Admin Panel</a>
+                    </Link>
+                    
+                    :
+                    null
+                    }
+                    <Mutation mutation={TOGGLE_CART_MUTATION}>
+                        {toggleCart=>(
+                            <button onClick={toggleCart}>
+                                My Cart
+                                <CartCount count={me.cart.reduce((tally,cartItem)=>
+                                    tally + cartItem.quantity, 0
+                                )}/>
+                            </button>
+                        )}
+                    </Mutation>
+
+                    <Signout/>
+
+                </>
+                :  
+                <Link href="/signup">
+                    <a>Sign In</a>
+                </Link>
+                }
+                
+        
+            </NavStyles>
+        )}
+    </User>
+    
+)
+
+export default Nav
