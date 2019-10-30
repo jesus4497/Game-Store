@@ -9,7 +9,7 @@ An e-commerce using React, Apollo, GraphQL, Prisma
 - [ ] Prisma
 # Getting Started
 - Clone this project
-- Run npm install in the directory where you cloned this project
+- Run npm install in the directory where you cloned this project in both frontend and backend folders.
 - Run prisma -g install in the backend folder
 - You must create a Prisma account and choose the demo server with Prisma init command.
 - You will need to create a file called variables.env or just .env for enviroment variables, there you can add your Prisma server endpoint.
