@@ -1,12 +1,13 @@
 # GameStore
 An e-commerce using React, Apollo, GraphQL, Prisma
 # Technologies
-- [ ] ReactJS
-- [ ] Apollo
-- [ ] JavaScript
-- [ ] Styled-Components
-- [ ] GraphQL
-- [ ] Prisma
+- ReactJS
+- Next.js
+- Apollo
+- JavaScript
+- Styled-Components
+- GraphQL
+- Prisma
 # Getting Started
 - Clone this project
 - Run npm install in the directory where you cloned this project in both frontend and backend folders.
